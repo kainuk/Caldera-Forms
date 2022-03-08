@@ -858,8 +858,8 @@ class Caldera_Forms
 				if (is_wp_error($validated)) {
 					return $validated;
 				} else {
-					$entry_id = $details['id'];
-					$edit_token = Caldera_Forms_Entry_Token::create_entry_token($entry_id, $form);
+					$entryid = $details['id'];
+					//$edit_token = Caldera_Forms_Entry_Token::create_entry_token($entry_id, $form);
 				}
 
 
@@ -1020,13 +1020,13 @@ class Caldera_Forms
 							$query_vars = array_merge($redirect['query'], $query_vars);
 							$base_redirect = $base_redirect[0];
 						}
-						
+
 						// Re urlencode query vars after they were parsed in this function
 						foreach($query_vars as $var_names => $var_values){
 							$query_vars[$var_names] = rawurlencode($var_values);
 						}
 						$redirect = add_query_arg($query_vars, $base_redirect);
-						
+
 						return $redirect;
 					}
 				}
